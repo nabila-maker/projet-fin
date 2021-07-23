@@ -30,10 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type:DataTypes.STRING
     },
-    completed: {
-      allowNull: false,
-      type:DataTypes.BOOLEAN
-    },
+    
     tag: {
       type:DataTypes.STRING
     }

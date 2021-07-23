@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.DATEONLY
     },
     status: {
-      type:DataTypes.STRING
-    },
+      type:DataTypes.BOOLEAN
+    }
   }, {
     sequelize,
     modelName: 'userChallenge',

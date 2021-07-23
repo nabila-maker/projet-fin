@@ -8,8 +8,8 @@ const challengeController = require("../controller/challenge_controller");
 
 const mainRouter = express.Router();
 
-mainRouter.use("/challenge",challengeRouter);
-//mainRouter.use("/user",userRouter);
-//mainRouter.use("/userchallenge",userchallengeRouter);
+mainRouter.use("/challenges",challengeRouter);
+mainRouter.use("/user",userRouter);
+
 
 module.exports = mainRouter;
