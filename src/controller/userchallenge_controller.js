@@ -2,30 +2,52 @@
 
 const {challenge} = require("../models");
 const {user} = require("../models");
+const{userChallenge} = require ('../models');
 
 const userChallengeController = {
-    getAllChallenge: async () => {
-        const challengee = await challenge.findAll({
-             //order:[["tag"]],
-            attributes:["title","tag"],
-            raw: true,
-        });
-        return challengee;
-   
-    },
 
-    getByUserId: async (userId,challengeId) => {
-        const userchallenge = await Challenge.findOne({
+    getUserChallenge: async (user_id,challenge_id,status) => {
+        const userchallenge = await userChallenge.findAll({
           where: {
+            user_id,
             challenge_id,
-            user_id
+           status
+
           },
-          attributes: {exclude: ["dateCreated"]},
+         
     
         });
-        if (!User) {
-          throw new NotFoundError("Ressource introuvable", "Ce User n'existe pas");
+        if (!userchallenge) {
+          throw new NotFoundError("Ressource introuvable", "Ce challenge n'a pas été sélectionné");
         }
-        return
-    }    
+        return userchallenge;
+    },
+
+    addChallenge: async (data)=>{
+        const  userChoose = await userChallenge.create(data)
+  
+        return userChoose;
+    },
+
+    addValidatedChallenge: async(user_id,challenge_id,data)=>{
+
+        const challengeValidated = await userChallenge.findOne({
+            where:{
+                user_id,
+                challenge_id,
+                
+              
+            }
+            
+
+            
+        })
+        await challengeValidated.update(data)
+        return challengeValidated;
+
+    },
 }
+
+
+
+module.exports = userChallengeController;

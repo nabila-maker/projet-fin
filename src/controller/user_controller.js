@@ -88,11 +88,11 @@ const userController = {
       where: {
         id
       },
-      attributes: {exclude: ["dateCreated"]},
+    attributes: {exclude: ["createdAt,updatest"]},
 
     });
     if (!User) {
-      throw new NotFoundError("Ressource introuvable", "Ce User n'existe pas");
+      throw new NotFoundError("Ressource introuvable", "Cet utilisateur n'existe pas");
     }
 
     return User;

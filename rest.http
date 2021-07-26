@@ -4,12 +4,25 @@ get http://localhost:8080/api/challenges
 
 
 #####
-post http://localhost:8080/api/signup
+post http://localhost:8080/api/user/signup
 
 ####
 
-post http://localhost:8080/api/login
+post http://localhost:8080/api/user/login
 
 ####
 
 get http://localhost:8080/api/challenges/2
+
+#####
+
+get  http://localhost:8080/api/account/2ba733dd-89c8-4a2a-b1d5-a1b690e3f8f7
+
+####
+
+post http://localhost:8080/api/account/challenges
+
+#####
+put http://localhost:8080/api/account/challenges/validated
+
+
